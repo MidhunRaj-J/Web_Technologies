@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 8px;
+            width: 300px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1e8449;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Registration Form</h1>
+    <form onsubmit="return validateForm()">
+        <label>Student Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label>Registration Number:</label>
+        <input type="text" id="reg" name="reg">
+
+        <label>Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label>Phone Number:</label>
+        <input type="tel" id="phone" name="phone">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="message"></div>
+
+    <button onclick="window.location.href='index.html'">Back to VIT-AP</button>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
