@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML5 Audio and Video</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background: #f9fafb; }
+  h2 { margin-top: 30px; }
+  .player { margin-bottom: 20px; }
+  .time { font-weight: bold; margin-top: 5px; }
+</style>
+</head>
+<body>
+
+<h2>Audio Player</h2>
+<div class="player">
+  <audio id="audio" controls>
+    <source src="sample-audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="audio-time" class="time">Current Time: 0:00</div>
+</div>
+
+<h2>Video Player</h2>
+<div class="player">
+  <video id="video" width="480" controls>
+    <source src="https://youtu.be/dQw4w9WgXcQ?si=JEt6If3UicbOFmaw" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+  <div id="video-time" class="time">Current Time: 0:00</div>
+</div>
+
+<script>
+  function formatTime(seconds) {
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return m + ":" + (s < 10 ? "0" + s : s);
+  }
+
+  const audio = document.getElementById('audio');
+  const audioTime = document.getElementById('audio-time');
+  audio.addEventListener('timeupdate', () => {
+    audioTime.textContent = "Current Time: " + formatTime(audio.currentTime);
+  });
+
+  const video = document.getElementById('video');
+  const videoTime = document.getElementById('video-time');
+  video.addEventListener('timeupdate', () => {
+    videoTime.textContent = "Current Time: " + formatTime(video.currentTime);
+  });
+</script>
+
+</body>
+</html>
