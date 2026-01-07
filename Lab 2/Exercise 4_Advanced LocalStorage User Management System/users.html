@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced LocalStorage User Management</title>
+<link rel="stylesheet" href="users.css">
+</head>
+<body>
+
+<h1>User Registration & Management System</h1>
+
+<div class="form-container">
+  <form id="registrationForm">
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="mobile" placeholder="Mobile Number">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<div class="table-container">
+  <h2>Registered Users</h2>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <button id="clearAll">Clear All Users</button>
+</div>
+
+<script src="users.js"></script>
+</body>
+</html>
