@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Activity Monitor</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; padding: 20px; background-color: #222; color: #eee; }
+        .container { display: flex; gap: 20px; }
+        
+        /* INTERACTION ZONE (Where user generates events) */
+        .interaction-zone { 
+            flex: 1; 
+            background: #333; 
+            padding: 20px; 
+            border: 2px dashed #555; 
+            border-radius: 8px;
+        }
+        .test-btn { padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; font-size: 16px; margin-top: 10px;}
+        .test-input { padding: 10px; width: 80%; margin-bottom: 10px; }
+
+        /* LOG DISPLAY */
+        .log-panel { flex: 1; background: #000; border: 1px solid #444; height: 500px; overflow-y: scroll; padding: 10px; border-radius: 4px;}
+        .log-entry { font-size: 0.85em; border-bottom: 1px solid #333; padding: 4px 0; display: flex; justify-content: space-between; }
+        
+        /* Highlight phases */
+        .phase-capture { color: #ff9800; } /* Orange */
+        .phase-target { color: #4caf50; }  /* Green */
+        .phase-bubble { color: #2196f3; }  /* Blue */
+
+        /* CONTROLS & WARNINGS */
+        .controls { margin-top: 20px; display: flex; gap: 10px; }
+        .warning-box {
+            background-color: #dc3545; color: white; padding: 15px; margin-bottom: 20px;
+            text-align: center; font-weight: bold; border-radius: 5px; display: none;
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">👁️ Real-Time User Activity Monitor</h2>
+
+    <div id="suspicious-alert" class="warning-box">
+        ⚠️ SUSPICIOUS ACTIVITY DETECTED: Rapid inputs! (System Paused for 2s)
+    </div>
+
+    <div class="container">
+        <div class="interaction-zone" id="zone-container">
+            <h3>Interaction Zone</h3>
+            <p>Type below or click the button to generate events.</p>
+            <input type="text" id="track-input" class="test-input" placeholder="Focus here and type...">
+            <br>
+            <button id="track-btn" class="test-btn">Click Me</button>
+        </div>
+
+        <div class="log-panel" id="log-display">
+            <div style="color:gray; text-align:center;">Waiting for activity...</div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="resetLog()" style="padding:10px;">Clear Log</button>
+        <button onclick="exportLog()" style="padding:10px;">Export to .txt</button>
+    </div>
+
+    <script src="monitor.js"></script>
+</body>
+</html>
