@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Survey Builder</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f0f2f5; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        
+        /* Form Layout */
+        .form-group { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .form-label { display: block; font-weight: bold; margin-bottom: 8px; color: #444; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        /* Radio & Checkbox Styling */
+        .option-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        .option-label { font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+
+        /* Error Message Styling (Requirement 5) */
+        .error-msg { color: #dc3545; font-size: 0.85em; margin-top: 5px; display: none; }
+        .input-error { border-color: #dc3545; }
+
+        /* Button */
+        .submit-btn { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 4px; font-size: 1em; cursor: pointer; }
+        .submit-btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>📋 Customer Feedback Survey</h2>
+        <form id="dynamicForm">
+            <div id="form-fields"></div>
+            
+            <button type="submit" class="submit-btn">Submit Survey</button>
+        </form>
+    </div>
+
+    <script src="survey.js"></script>
+</body>
+</html>
