@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adaptive Registration System</title>
+  <style>
+    /* General page styling */
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Form container */
+form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  margin:30px;
+  margin-bottom: 25px;
+  color: #333;
+
+  font-weight: 600;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Inputs & Selects */
+input, select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect */
+input:focus, select:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 6px rgba(0,120,215,0.3);
+  outline: none;
+}
+
+/* Error state */
+.error {
+  border-color: #e63946 !important;
+  background: #ffe5e5;
+}
+
+/* Feedback messages */
+.feedback {
+  color: #e63946;
+  font-size: 0.85em;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+/* Hidden elements */
+.hidden {
+  display: none;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0078d7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Button hover */
+button:hover {
+  background: #005a9e;
+  transform: translateY(-2px);
+}
+
+/* Button active */
+button:active {
+  transform: translateY(0);
+}
+
+/* Success feedback (optional) */
+.success {
+  color: #2a9d8f;
+  font-size: 0.9em;
+}
+  </style>
+</head>
+<body>
+  <h2>Adaptive Registration Form</h2>
+  <br>
+  <br>
+  <form id="registrationForm">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" id="name" required>
+      <div class="feedback" id="nameFeedback"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" id="email" required>
+      <div class="feedback" id="emailFeedback"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Password:</label>
+      <input type="password" id="password" required>
+      <div class="feedback" id="passwordFeedback"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmPassword" required>
+      <div class="feedback" id="confirmFeedback"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Age:</label>
+      <input type="number" id="age" required>
+      <div class="feedback" id="ageFeedback"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Role:</label>
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+
+    <div class="form-group hidden" id="skillsGroup">
+      <label>Skills:</label>
+      <input type="text" id="skills">
+      <div class="feedback" id="skillsFeedback"></div>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
