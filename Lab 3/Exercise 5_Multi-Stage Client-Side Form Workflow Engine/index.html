@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Stage Form Workflow</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: white; width: 450px; padding: 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        /* Progress Bar */
+        .progress-container { background-color: #e9ecef; border-radius: 5px; height: 10px; margin-bottom: 25px; overflow: hidden; }
+        .progress-bar { background-color: #007bff; height: 100%; width: 0%; transition: width 0.3s ease; }
+        
+        /* Stage Visibility Control */
+        .stage { display: none; animation: fadeIn 0.4s; }
+        .stage.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Form Elements */
+        h2 { color: #333; margin-top: 0; }
+        label { display: block; margin: 10px 0 5px; font-weight: 500; color: #555; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        
+        /* Error Styling */
+        .error-msg { color: #dc3545; font-size: 0.85em; display: none; margin-top: 4px; }
+        .input-error { border-color: #dc3545; }
+
+        /* Buttons */
+        .btn-group { margin-top: 25px; display: flex; justify-content: space-between; }
+        button { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; transition: 0.2s; }
+        .btn-next { background-color: #007bff; color: white; }
+        .btn-prev { background-color: #6c757d; color: white; }
+        .btn-submit { background-color: #28a745; color: white; }
+        button:hover { opacity: 0.9; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+
+        /* Review Section Styling */
+        .review-item { border-bottom: 1px solid #eee; padding: 8px 0; display: flex; justify-content: space-between; }
+        .review-label { color: #777; }
+        .review-val { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <form id="workflowForm">
+            
+            <div class="stage active" data-step="1">
+                <h2>Step 1: Account</h2>
+                
+                <label>Username</label>
+                <input type="text" id="username" placeholder="Create a username">
+                <small class="error-msg" id="err-username">Username must be at least 4 characters.</small>
+
+                <label>Password</label>
+                <input type="password" id="password" placeholder="Create a password">
+                <small class="error-msg" id="err-password">Password must be at least 6 characters.</small>
+
+                <div class="btn-group" style="justify-content: flex-end;">
+                    <button type="button" class="btn-next" onclick="nextStage()">Next &rarr;</button>
+                </div>
+            </div>
+
+            <div class="stage" data-step="2">
+                <h2>Step 2: Personal Info</h2>
+                
+                <label>Email Address</label>
+                <input type="text" id="email" placeholder="john@example.com">
+                <small class="error-msg" id="err-email">Please enter a valid email.</small>
+
+                <label>Phone Number</label>
+                <input type="text" id="phone" placeholder="1234567890">
+                <small class="error-msg" id="err-phone">Phone number must be 10 digits.</small>
+
+                <div class="btn-group">
+                    <button type="button" class="btn-prev" onclick="prevStage()">&larr; Back</button>
+                    <button type="button" class="btn-next" onclick="nextStage()">Next &rarr;</button>
+                </div>
+            </div>
+
+            <div class="stage" data-step="3">
+                <h2>Step 3: Preferences</h2>
+                
+                <label>Preferred Communication</label>
+                <select id="commMethod">
+                    <option value="">Select an option...</option>
+                    <option value="Email">Email</option>
+                    <option value="SMS">SMS</option>
+                </select>
+                <small class="error-msg" id="err-commMethod">Please make a selection.</small>
+
+                <label style="margin-top:20px;">
+                    <input type="checkbox" id="terms" style="width:auto;"> I agree to the Terms & Conditions
+                </label>
+                <small class="error-msg" id="err-terms">You must agree to continue.</small>
+
+                <div class="btn-group">
+                    <button type="button" class="btn-prev" onclick="prevStage()">&larr; Back</button>
+                    <button type="button" class="btn-next" onclick="nextStage()">Review &rarr;</button>
+                </div>
+            </div>
+
+            <div class="stage" data-step="4">
+                <h2>Step 4: Review</h2>
+                <p>Please review your details before submitting.</p>
+                
+                <div id="review-summary">
+                    </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn-prev" onclick="prevStage()">&larr; Back</button>
+                    <button type="button" class="btn-submit" onclick="submitForm()">Submit Form</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="workflow.js"></script>
+</body>
+</html>
