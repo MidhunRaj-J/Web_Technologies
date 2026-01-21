@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Shopping Cart</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background-color: #f4f4f9; }
+        .container { display: flex; gap: 20px; }
+        .box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 50%; }
+        
+        /* Product List Styling */
+        .product, .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 10px 0; }
+        button { cursor: pointer; padding: 5px 10px; border: none; border-radius: 4px; transition: 0.2s; }
+        .btn-add { background-color: #28a745; color: white; }
+        .btn-remove { background-color: #dc3545; color: white; }
+        .btn-qty { background-color: #007bff; color: white; }
+        
+        /* Cart Summary Styling */
+        .summary { margin-top: 20px; background: #fafafa; padding: 15px; border-radius: 5px; }
+        .total-line { display: flex; justify-content: space-between; margin-bottom: 5px; }
+        .final-price { font-size: 1.2em; font-weight: bold; color: #333; border-top: 2px solid #ddd; padding-top: 10px; }
+        
+        /* Discount Tags */
+        .tag { font-size: 0.8em; padding: 2px 6px; border-radius: 4px; margin-left: 5px; }
+        .tag-bulk { background-color: #e2e6ea; color: #333; border: 1px solid #ccc; }
+        .tag-time { color: purple; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>🛒 Intelligent Shopping Cart</h2>
+
+    <div class="container">
+        <div class="box">
+            <h3>Available Products</h3>
+            <div id="product-list"></div>
+        </div>
+
+        <div class="box">
+            <h3>Your Cart <span id="time-indicator"></span></h3>
+            <div id="cart-items">
+                <p>Your cart is empty.</p>
+            </div>
+
+            <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+                <label>Coupon Code:</label>
+                <input type="text" id="coupon-code" placeholder="Try 'SAVE10' or 'FREESHIP'">
+                <button onclick="applyCoupon()" style="background:#555; color:white;">Apply</button>
+                <p id="coupon-msg" style="font-size: 0.9em; height: 1em;"></p>
+            </div>
+
+            <div class="summary" id="cart-summary">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
