@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "Wireless Mouse", "category": "Electronics", "price": 25.99, "stock": 50 },
+  { "id": 2, "name": "Mechanical Keyboard", "category": "Electronics", "price": 89.99, "stock": 15 },
+  { "id": 3, "name": "Desk Lamp", "category": "Home Office", "price": 35.50, "stock": 4 },
+  { "id": 4, "name": "Notebook (Set of 3)", "category": "Stationery", "price": 12.00, "stock": 100 }
+]

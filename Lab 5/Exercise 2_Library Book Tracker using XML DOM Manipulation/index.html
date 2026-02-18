@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Book Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📚 Library Tracker</h1>
+            <p>Manage your book inventory via XML DOM</p>
+        </header>
+
+        <div id="notification" class="notification hidden"></div>
+
+        <section class="form-card">
+            <h3>Add New Book</h3>
+            <div class="input-group">
+                <input type="text" id="book-title" placeholder="Book Title">
+                <input type="text" id="book-author" placeholder="Author Name">
+                <select id="book-status">
+                    <option value="Available">Available</option>
+                    <option value="Borrowed">Borrowed</option>
+                </select>
+                <button onclick="addBook()">Add Book</button>
+            </div>
+        </section>
+
+        <section class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="book-list">
+                    </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

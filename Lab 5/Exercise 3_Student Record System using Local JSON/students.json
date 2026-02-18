@@ -1,0 +1,20 @@
+[
+  {
+    "id": 101,
+    "name": "Emma Watson",
+    "course": "Computer Science",
+    "marks": 88
+  },
+  {
+    "id": 102,
+    "name": "Liam Neeson",
+    "course": "Drama",
+    "marks": 75
+  },
+  {
+    "id": 103,
+    "name": "Robert Downey",
+    "course": "Engineering",
+    "marks": 92
+  }
+]

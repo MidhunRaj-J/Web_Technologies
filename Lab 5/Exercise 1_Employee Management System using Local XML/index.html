@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Employee Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Employee Management System (XML)</h2>
+        
+        <p id="msg-box" class="msg-box hidden"></p>
+
+        <div class="form-container">
+            <input type="hidden" id="emp-id-hidden"> <div class="input-group">
+                <input type="text" id="emp-name" placeholder="Name">
+                <input type="text" id="emp-dept" placeholder="Department">
+                <input type="number" id="emp-salary" placeholder="Salary">
+            </div>
+            <button id="add-btn" onclick="addEmployee()">Add Employee</button>
+            <button id="update-btn" onclick="saveUpdate()" class="hidden">Save Changes</button>
+            <button id="cancel-btn" onclick="resetForm()" class="hidden">Cancel</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

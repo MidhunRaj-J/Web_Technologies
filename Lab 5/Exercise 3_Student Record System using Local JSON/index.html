@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎓 Student Record System</h1>
+
+        <div id="message-area" class="message hidden"></div>
+
+        <div class="card form-section">
+            <h3 id="form-title">Add New Student</h3>
+            <div class="input-grid">
+                <input type="hidden" id="student-id">
+                <input type="text" id="name" placeholder="Student Name" autocomplete="off">
+                <input type="text" id="course" placeholder="Course (e.g., Math)" autocomplete="off">
+                <input type="number" id="marks" placeholder="Marks (0-100)" min="0" max="100">
+            </div>
+            <div class="action-buttons">
+                <button id="save-btn" class="btn-primary">Add Student</button>
+                <button id="update-btn" class="btn-warning hidden">Update Student</button>
+                <button id="cancel-btn" class="btn-secondary hidden">Cancel</button>
+            </div>
+        </div>
+
+        <div class="card table-section">
+            <h3>Student List</h3>
+            <table id="records-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Marks</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📦 Inventory Manager</h1>
+            <div class="summary-card">
+                <span>Total Inventory Value:</span>
+                <strong id="total-value">$0.00</strong>
+            </div>
+        </header>
+
+        <div id="msg-box" class="msg-box hidden"></div>
+
+        <div class="controls-grid">
+            
+            <div class="card form-card">
+                <h3 id="form-title">Add New Product</h3>
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+                    <div class="input-group">
+                        <input type="text" id="name" placeholder="Product Name" required>
+                        <input type="text" id="category" placeholder="Category" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="number" id="price" placeholder="Price ($)" step="0.01" min="0" required>
+                        <input type="number" id="stock" placeholder="Stock Qty" min="0" required>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" id="save-btn">Add Product</button>
+                        <button type="button" id="cancel-btn" class="hidden">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card search-card">
+                <h3>🔍 Search</h3>
+                <input type="text" id="search-input" placeholder="Filter by Category or Name...">
+            </div>
+        </div>
+
+        <div class="card table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-list">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
