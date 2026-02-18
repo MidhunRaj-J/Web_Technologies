@@ -1,0 +1,93 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.weather-dashboard {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 320px;
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover { background: #0056b3; }
+
+/* Weather Card */
+.weather-card {
+    margin-top: 20px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#temperature { font-size: 2.5rem; margin: 0; color: #333; }
+#condition { color: #666; text-transform: capitalize; margin-bottom: 20px; }
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
+
+/* Utilities */
+.hidden { display: none; }
+.error-msg { color: #dc3545; background: #ffe6e6; padding: 10px; border-radius: 5px; }
+.cache-notice { font-size: 0.8rem; color: #28a745; margin-top: 10px; }
+
+/* Spinner */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
