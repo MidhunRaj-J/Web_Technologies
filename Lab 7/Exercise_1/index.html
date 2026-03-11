@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Notes Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>📒 Student Notes Manager</header>
+
+<div class="container">
+
+  <!-- ADD NOTE FORM -->
+  <div class="card">
+    <h2>➕ Add New Note</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="e.g. MongoDB Basics" />
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="e.g. Database" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" placeholder="Write your notes here..."></textarea>
+    </div>
+    <button class="btn btn-primary" onclick="addNote()">Save Note</button>
+  </div>
+
+  <!-- VIEW NOTES -->
+  <div class="notes-header">
+    <div class="section-title">📋 My Notes</div>
+    <span id="note-count"></span>
+  </div>
+  <div id="notes-container"></div>
+
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h2>✏️ Edit Note</h2>
+    <input type="hidden" id="edit-id" />
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" id="edit-title" />
+    </div>
+    <div class="form-group">
+      <label>Subject</label>
+      <input type="text" id="edit-subject" />
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea id="edit-description"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-warning" onclick="saveEdit()">Update Note</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
