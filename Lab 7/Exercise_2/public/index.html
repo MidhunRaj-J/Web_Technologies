@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Book Finder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>&#128218; Online Book Finder</h1>
+      <p>Search, filter, and explore books using MongoDB queries</p>
+    </header>
+
+    <main>
+      <!-- ── Module 1: Search by Title ───────────────────── -->
+      <section class="card" id="section-search">
+        <h2>&#128269; Module 1 — Search Books by Title</h2>
+        <p class="query-tag">
+          <code>db.books.find({ title: { $regex: "...", $options: "i" } })</code>
+        </p>
+        <div class="input-row">
+          <input type="text" id="searchInput" placeholder="e.g. JavaScript" />
+          <button onclick="searchByTitle()">Search</button>
+        </div>
+        <div id="searchResults" class="results-area"></div>
+      </section>
+
+      <!-- ── Module 2: Filter by Category ────────────────── -->
+      <section class="card" id="section-category">
+        <h2>&#128196; Module 2 — Filter Books by Category</h2>
+        <p class="query-tag">
+          <code>db.books.find({ category: "..." })</code>
+        </p>
+        <div class="input-row">
+          <select id="categorySelect">
+            <option value="">-- Select Category --</option>
+            <option value="Programming">Programming</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Database">Database</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Software Engineering">Software Engineering</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Networking">Networking</option>
+          </select>
+          <button onclick="filterByCategory()">Filter</button>
+        </div>
+        <div id="categoryResults" class="results-area"></div>
+      </section>
+
+      <!-- ── Module 3: Sort Books ─────────────────────────── -->
+      <section class="card" id="section-sort">
+        <h2>&#128200; Module 3 — Sort Books</h2>
+        <div class="sort-buttons">
+          <div class="sort-option">
+            <p class="query-tag"><code>db.books.find().sort({ price: 1 })</code></p>
+            <button onclick="sortBooks('price')">Sort by Price (Low → High)</button>
+          </div>
+          <div class="sort-option">
+            <p class="query-tag"><code>db.books.find().sort({ rating: -1 })</code></p>
+            <button onclick="sortBooks('rating')">Sort by Rating (High → Low)</button>
+          </div>
+        </div>
+        <div id="sortResults" class="results-area"></div>
+      </section>
+
+      <!-- ── Module 4: Top Rated ──────────────────────────── -->
+      <section class="card" id="section-top">
+        <h2>&#11088; Module 4 — Top Rated Books</h2>
+        <p class="query-tag">
+          <code>db.books.find({ rating: { $gte: 4 } }).limit(5)</code>
+        </p>
+        <button onclick="loadTopRated()">Load Top Rated Books</button>
+        <div id="topResults" class="results-area"></div>
+      </section>
+
+      <!-- ── Module 5: Pagination ─────────────────────────── -->
+      <section class="card" id="section-pagination">
+        <h2>&#128196; Module 5 — All Books with Pagination</h2>
+        <p class="query-tag">
+          <code>db.books.find().skip(n).limit(5)</code>
+        </p>
+        <div id="pageInfo" class="page-info"></div>
+        <div id="paginationResults" class="results-area"></div>
+        <div class="pagination-controls">
+          <button id="prevBtn" onclick="changePage(-1)" disabled>&#8592; Previous</button>
+          <span id="pageLabel">Page 1</span>
+          <button id="nextBtn" onclick="changePage(1)">Next &#8594;</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Lab 7 &mdash; Exercise 2 &nbsp;|&nbsp; Online Book Finder &nbsp;|&nbsp; MongoDB Query Operations</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "online-book-finder",
+  "version": "1.0.0",
+  "description": "Online Book Finder with MongoDB retrieval and query operations",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  }
+}
