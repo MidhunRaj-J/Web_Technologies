@@ -1,0 +1,215 @@
+/* ── Reset & Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #2d3748;
+  min-height: 100vh;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #2b6cb0, #4299e1);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+header h1 { font-size: 2rem; letter-spacing: .5px; }
+header .subtitle { margin-top: .4rem; opacity: .85; font-size: .95rem; }
+
+/* ── Main layout ──────────────────────────────────────────────────────────── */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+.card h2 { font-size: 1.25rem; margin-bottom: 1.2rem; color: #2b6cb0; }
+
+/* ── Form ────────────────────────────────────────────────────────────────── */
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  font-size: .88rem;
+  font-weight: 600;
+  margin-bottom: .35rem;
+  color: #4a5568;
+}
+.req { color: #e53e3e; }
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: .6rem .85rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: .95rem;
+  transition: border-color .2s, box-shadow .2s;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66,153,225,.2);
+}
+
+.form-actions { display: flex; gap: .75rem; margin-top: 1.2rem; }
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn {
+  padding: .55rem 1.3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.btn:active { transform: scale(.97); }
+
+.btn-primary   { background: #3182ce; color: #fff; }
+.btn-primary:hover { background: #2b6cb0; }
+
+.btn-secondary { background: #e2e8f0; color: #4a5568; }
+.btn-secondary:hover { background: #cbd5e0; }
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid #3182ce;
+  color: #3182ce;
+}
+.btn-outline:hover { background: #ebf8ff; }
+
+.btn-edit   { background: #f6e05e; color: #744210; font-size: .82rem; padding: .35rem .8rem; }
+.btn-edit:hover { background: #ecc94b; }
+
+.btn-delete { background: #fc8181; color: #63171b; font-size: .82rem; padding: .35rem .8rem; }
+.btn-delete:hover { background: #f56565; }
+
+/* ── Messages ────────────────────────────────────────────────────────────── */
+.message {
+  margin-top: .9rem;
+  padding: .65rem 1rem;
+  border-radius: 8px;
+  font-size: .9rem;
+  font-weight: 500;
+}
+.message.success { background: #c6f6d5; color: #22543d; border-left: 4px solid #38a169; }
+.message.error   { background: #fed7d7; color: #63171b; border-left: 4px solid #e53e3e; }
+
+/* ── View section ────────────────────────────────────────────────────────── */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#search-bar { margin-bottom: 1.2rem; }
+#search-input {
+  width: 100%;
+  padding: .55rem .9rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: .92rem;
+}
+#search-input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66,153,225,.2);
+}
+
+/* ── Note Cards ──────────────────────────────────────────────────────────── */
+#notes-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.note-card {
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  position: relative;
+  transition: box-shadow .2s;
+}
+.note-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,.1); }
+
+.note-card .note-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: .25rem;
+}
+.note-card .note-subject {
+  display: inline-block;
+  background: #bee3f8;
+  color: #2c5282;
+  font-size: .78rem;
+  font-weight: 600;
+  padding: .15rem .6rem;
+  border-radius: 20px;
+  margin-bottom: .6rem;
+}
+.note-card .note-desc {
+  font-size: .9rem;
+  color: #4a5568;
+  line-height: 1.55;
+  margin-bottom: .75rem;
+  white-space: pre-wrap;
+}
+.note-card .note-meta {
+  font-size: .78rem;
+  color: #a0aec0;
+  margin-bottom: .65rem;
+}
+.note-card .card-actions { display: flex; gap: .5rem; }
+
+.empty-msg {
+  text-align: center;
+  color: #a0aec0;
+  padding: 2rem 0;
+  font-size: .95rem;
+}
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.2);
+  animation: slideUp .2s ease;
+}
+.modal h2 { margin-bottom: 1.2rem; color: #2b6cb0; font-size: 1.2rem; }
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* ── Utility ─────────────────────────────────────────────────────────────── */
+.hidden { display: none !important; }

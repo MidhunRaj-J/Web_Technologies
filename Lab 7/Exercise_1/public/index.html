@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Notes Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>&#128218; Student Notes Manager</h1>
+    <p class="subtitle">Create, view, update and delete your study notes</p>
+  </header>
+
+  <main>
+
+    <!-- ── Module 1 & 3 : Add / Edit Note Form ─────────────────────────────── -->
+    <section class="card" id="form-section">
+      <h2 id="form-title">&#10133; Add Note</h2>
+
+      <form id="note-form" novalidate>
+        <input type="hidden" id="edit-id" />
+
+        <div class="form-group">
+          <label for="title">Title <span class="req">*</span></label>
+          <input type="text" id="title" placeholder="e.g. MongoDB Basics" required />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject <span class="req">*</span></label>
+          <input type="text" id="subject" placeholder="e.g. Database" required />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description <span class="req">*</span></label>
+          <textarea id="description" rows="4" placeholder="Write your notes here…" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary">Save Note</button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+
+      <div id="form-msg" class="message hidden"></div>
+    </section>
+
+    <!-- ── Module 2 : View Notes ───────────────────────────────────────────── -->
+    <section class="card" id="view-section">
+      <div class="section-header">
+        <h2>&#128196; All Notes</h2>
+        <button class="btn btn-outline" id="refresh-btn">&#8635; Refresh</button>
+      </div>
+
+      <div id="search-bar">
+        <input type="text" id="search-input" placeholder="&#128269; Filter by title or subject…" />
+      </div>
+
+      <div id="notes-container">
+        <p class="empty-msg">Loading notes…</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Module 3 : Edit Modal ─────────────────────────────────────────────── -->
+  <div id="modal-overlay" class="hidden">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+      <h2 id="modal-heading">&#9998; Edit Note</h2>
+
+      <form id="modal-form" novalidate>
+        <div class="form-group">
+          <label for="m-title">Title</label>
+          <input type="text" id="m-title" required />
+        </div>
+        <div class="form-group">
+          <label for="m-subject">Subject</label>
+          <input type="text" id="m-subject" required />
+        </div>
+        <div class="form-group">
+          <label for="m-description">Description</label>
+          <textarea id="m-description" rows="4" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Update Note</button>
+          <button type="button" id="modal-close" class="btn btn-secondary">Cancel</button>
+        </div>
+      </form>
+
+      <div id="modal-msg" class="message hidden"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
