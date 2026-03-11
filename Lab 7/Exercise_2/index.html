@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Online Book Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>📚 Online Book Finder</header>
+
+<div class="container">
+
+  <!-- SEARCH BY TITLE -->
+  <div class="card">
+    <h2>🔍 Search Books by Title</h2>
+    <div class="input-row">
+      <input type="text" id="search-input" placeholder="e.g. JavaScript" />
+      <button class="btn btn-primary" onclick="searchByTitle()">Search</button>
+    </div>
+    <!-- AJAX: GET /books/search?title=... -->
+    <!-- MongoDB: db.books.find({title:{$regex:"...", $options:"i"}}) -->
+  </div>
+
+  <!-- FILTER BY CATEGORY -->
+  <div class="card">
+    <h2>📂 Filter by Category</h2>
+    <div class="input-row">
+      <select id="category-select">
+        <option value="">-- Select Category --</option>
+        <option value="Programming">Programming</option>
+        <option value="Science">Science</option>
+        <option value="Mathematics">Mathematics</option>
+        <option value="History">History</option>
+        <option value="Fiction">Fiction</option>
+      </select>
+      <button class="btn btn-secondary" onclick="filterByCategory()">Filter</button>
+    </div>
+    <!-- AJAX: GET /books/category/:category -->
+    <!-- MongoDB: db.books.find({category:"..."}) -->
+  </div>
+
+  <!-- SORT -->
+  <div class="card">
+    <h2>↕️ Sort Books</h2>
+    <div class="btn-group">
+      <button class="btn btn-outline" onclick="sortBooks('price', 1)">Price ↑ Low to High</button>
+      <button class="btn btn-outline" onclick="sortBooks('price', -1)">Price ↓ High to Low</button>
+      <button class="btn btn-outline" onclick="sortBooks('rating', -1)">Rating ↓ Best First</button>
+      <button class="btn btn-outline" onclick="sortBooks('rating', 1)">Rating ↑ Low First</button>
+    </div>
+    <!-- AJAX: GET /books/sort/price  OR  GET /books/sort/rating -->
+    <!-- MongoDB: db.books.find().sort({price:1}) / db.books.find().sort({rating:-1}) -->
+  </div>
+
+  <!-- TOP RATED -->
+  <div class="card">
+    <h2>⭐ Top Rated Books</h2>
+    <button class="btn btn-primary" onclick="loadTopRated()">Load Top Rated (rating ≥ 4)</button>
+    <!-- AJAX: GET /books/top -->
+    <!-- MongoDB: db.books.find({rating:{$gte:4}}).limit(5) -->
+  </div>
+
+  <!-- RESULTS SECTION -->
+  <div class="results-header">
+    <span class="section-title">📋 Results</span>
+    <span id="result-count" class="count-badge"></span>
+  </div>
+  <div id="books-container"></div>
+
+  <!-- PAGINATION -->
+  <div class="pagination-bar" id="pagination-bar" style="display:none;">
+    <button class="btn btn-outline" id="prev-btn" onclick="changePage(-1)">◀ Prev</button>
+    <span id="page-info" class="page-info"></span>
+    <button class="btn btn-outline" id="next-btn" onclick="changePage(1)">Next ▶</button>
+  </div>
+  <!-- AJAX: GET /books?page=N -->
+  <!-- MongoDB: db.books.find().skip((page-1)*5).limit(5) -->
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
