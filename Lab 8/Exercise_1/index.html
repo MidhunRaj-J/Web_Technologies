@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Calculator</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        div { margin-bottom: 10px; }
+        #output { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h2>Enter Student Marks</h2>
+    
+    <div>
+        <label for="nameInput">Student Name:</label>
+        <input type="text" id="nameInput" placeholder="e.g., Arun">
+    </div>
+    <div>
+        <label for="mark1Input">Mark 1:</label>
+        <input type="number" id="mark1Input" placeholder="0 - 100">
+    </div>
+    <div>
+        <label for="mark2Input">Mark 2:</label>
+        <input type="number" id="mark2Input" placeholder="0 - 100">
+    </div>
+    <div>
+        <label for="mark3Input">Mark 3:</label>
+        <input type="number" id="mark3Input" placeholder="0 - 100">
+    </div>
+
+    <button onclick="processMarks()">Calculate Average</button>
+
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
