@@ -1,0 +1,14 @@
+{
+  "name": "exercise-3-mongodb-crud",
+  "version": "1.0.0",
+  "description": "Exercise 3 - Express with MongoDB and Mongoose CRUD",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
+  }
+}

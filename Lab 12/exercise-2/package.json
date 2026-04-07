@@ -1,0 +1,13 @@
+{
+  "name": "exercise-2-middleware",
+  "version": "1.0.0",
+  "description": "Exercise 2 - Express middleware demonstration",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
