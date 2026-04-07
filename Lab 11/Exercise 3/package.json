@@ -1,0 +1,17 @@
+{
+  "name": "lab11-exercise3-events-demo",
+  "version": "1.0.0",
+  "description": "Node.js EventEmitter demo for Web Technologies Lab 11 Exercise 3",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "events",
+    "eventemitter",
+    "lab"
+  ],
+  "author": "",
+  "license": "ISC"
+}

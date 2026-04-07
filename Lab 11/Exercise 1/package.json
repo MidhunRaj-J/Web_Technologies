@@ -1,0 +1,16 @@
+{
+  "name": "exercise-1-node-http-server",
+  "version": "1.0.0",
+  "description": "Simple Node.js HTTP server without external frameworks",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "http",
+    "web-server"
+  ],
+  "author": "",
+  "license": "ISC"
+}
